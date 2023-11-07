@@ -23,7 +23,7 @@ function App() {
   // );
   const name = "은들";
   return (
-    <div>
+    <div className="reactTest">
       <form>이름 : {name}</form>
       <apan>비밀번호 : </apan>
       <input type="password"></input>

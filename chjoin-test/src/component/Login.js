@@ -18,51 +18,6 @@ import { useState, useRef } from "react";
 import { Avatar, Button } from "antd";
 
 const Join = () => {
-  //프로필 이미지 작업
-  //Image : 상태값, 선택된 사진을
-  // setImage : 세터, Image 값을 변경하는 함수.
-  // 초깃값 세팅.
-  const [Image, setImage] = useState(
-    "https://pixabay.com/get/g98482c211bb7272b7b0bb18cba9e96f2a39550cbeb3093332f1f48203ee59d785a7e86c7e8c20286a55bc53d427fce396a39b4f9138d15d6643ad737705202f128a107bb5222a29e55ecfe2f64c53c2b_640.png"
-  );
-  // 파일 세팅 , 선택된 파일, 변경하는 함수
-  const [File, setFile] = useState("");
-  // input 태그에 접근하기 위한 ref 속성달기 -> 뷰에 접근하기위해서 사용.
-  // 설정하고 싶은 HTML DOM 요소에 가서,
-  // 사용법, 설정 ref = {fileInput}
-  // 사용은 해당 DOM 요소 접근시 사용.
-  // 설정1
-  const fileInput = useRef(null);
-
-  //이벤트 핸들러 추가, 사진이 변경시 동작하는 함수
-  const onChangeImage = (e) => {
-    // 선택된 파일이 첫번째 사진.
-    if (e.target.files[0]) {
-      setFile(e.target.files[0]);
-    } else {
-      // 취소가 발생했다면,
-      // 기본 프로필 베이직 사진.
-      setImage(
-        "https://pixabay.com/get/g98482c211bb7272b7b0bb18cba9e96f2a39550cbeb3093332f1f48203ee59d785a7e86c7e8c20286a55bc53d427fce396a39b4f9138d15d6643ad737705202f128a107bb5222a29e55ecfe2f64c53c2b_640.png"
-      );
-      return;
-    }
-
-    // 선택된 사진을 , 결과뷰에 출력하는 로직.
-    const reader = new FileReader();
-    reader.onload = () => {
-      // reader.readyState
-      // 0 : 비어있는 상태
-      // 1: 로딩 중
-      // 2: 로딩 완료
-      if (reader.readyState === 2) {
-        setImage(reader.result);
-      }
-    };
-    // 파일 데이터를 URL로 읽어오는 함수
-    reader.readAsDataURL(e.target.files[0]);
-  };
-
   // 방법1
   //useState 이용해서, 현재 상태값 , 세터 함수 정의하기.
   // const [email, setEmail] = useState("");
@@ -128,27 +83,8 @@ const Join = () => {
 
   return (
     <div>
-      <h1>이벤트 확인 중. </h1>
+      <h1>로그인창 </h1>
       {/* 프로필 이미지 아바타 뷰 사용 */}
-      <Avatar
-        src={Image}
-        size={200}
-        //적용, 해당 이미지 클릭이 되면,
-
-        // 설정3, 적용
-        // 밑에 있던, input 요소를 클릭하는 것과 동일 효과.
-        onClick={() => fileInput.current.click()}
-      />
-      <input
-        type="file"
-        style={{ display: "none" }}
-        accept="image/jpg, image/png, image/jpeg"
-        name="profileImg"
-        onChange={onChangeImage}
-        //  설정2
-        ref={fileInput}
-      />
-
       <h2>이메일 : {email}</h2>
       <h2>패스워드 : {password}</h2>
       <input
@@ -164,19 +100,19 @@ const Join = () => {
       />
       <br />
       <input
-        type="text"
+        type="password"
         name="password"
         placeholder="패스워드를 입력해주세요."
         value={password}
         // 방법1
         // onChange={onChangePassword}
         // 방법2
-        onChange={onChangeForm}
+
         onKeyPress={onKeyPress}
       />
       <br />
       <Button onClick={onClick} type="primary">
-        회원가입
+        로그인
       </Button>
     </div>
   );

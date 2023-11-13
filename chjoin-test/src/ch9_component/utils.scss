@@ -1,0 +1,40 @@
+//변수 색깔 선언
+$red: #f29d9d;
+$blue: #2326f3;
+$green: #3eff03;
+$cyan: #002c4a;
+$violet: #a80de1;
+$orange: #f37623;
+$yellow: #ffee00;
+
+//재사용할 함수 만들기
+@mixin square($size) {
+  $caculated: 32px * $size;
+  width: $caculated;
+  height: $caculated;
+}
+
+.SassTest {
+  display: flex;
+  .box {
+    background-color: $red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    // 현재 요소를 가리키는 &->box를 가르킴
+    &.red {
+      background-color: $red;
+      //위에서 만든 사각형 square함수 재사용
+      @include square(1);
+    }
+    &.cyan {
+      background-color: $cyan;
+      //위에서 만든 사각형 square함수 재사용
+      @include square(1);
+    }
+    //나머지 6가지 색깔 활용해서 박스 만들기
+
+    &:hover {
+      background-color: blue;
+    }
+  }
+}

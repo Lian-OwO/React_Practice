@@ -23,10 +23,11 @@ const Join = () => {
   // setImage : 세터, Image 값을 변경하는 함수.
   // 초깃값 세팅.
   const [Image, setImage] = useState(
-    "https://pixabay.com/get/g98482c211bb7272b7b0bb18cba9e96f2a39550cbeb3093332f1f48203ee59d785a7e86c7e8c20286a55bc53d427fce396a39b4f9138d15d6643ad737705202f128a107bb5222a29e55ecfe2f64c53c2b_640.png"
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
   );
   // 파일 세팅 , 선택된 파일, 변경하는 함수
   const [File, setFile] = useState("");
+  console.log(File);
   // input 태그에 접근하기 위한 ref 속성달기 -> 뷰에 접근하기위해서 사용.
   // 설정하고 싶은 HTML DOM 요소에 가서,
   // 사용법, 설정 ref = {fileInput}
@@ -43,7 +44,7 @@ const Join = () => {
       // 취소가 발생했다면,
       // 기본 프로필 베이직 사진.
       setImage(
-        "https://pixabay.com/get/g98482c211bb7272b7b0bb18cba9e96f2a39550cbeb3093332f1f48203ee59d785a7e86c7e8c20286a55bc53d427fce396a39b4f9138d15d6643ad737705202f128a107bb5222a29e55ecfe2f64c53c2b_640.png"
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
       );
       return;
     }

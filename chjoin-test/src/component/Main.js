@@ -15,7 +15,7 @@ import { Button } from "antd";
 // 공식 문서
 // https://styled-components.com/docs/basics#getting-started
 import styled from "styled-components";
-import { Component } from "react";
+// import { Component } from "react";
 
 // styled-component 사용해보기
 // 예제
@@ -265,13 +265,13 @@ const Main = () => {
           </Button>
           <br />
           <Button
-            title="ApiTest"
+            title="apiTest"
             type="primary"
             onClick={() => {
-              navigate("/ApiTest");
+              navigate("/apiTest");
             }}
           >
-            ApiTest 확인
+            apiTest 확인
           </Button>
           <br />
           <Button
@@ -298,7 +298,7 @@ const Main = () => {
             title="newsPageTest/:category"
             type="primary"
             onClick={() => {
-              navigate("/newsPageTest/:category");
+              navigate("/newsPageTest/all");
             }}
           >
             newsPageTest/:category 확인
@@ -312,6 +312,16 @@ const Main = () => {
             }}
           >
             contextAPITest 확인
+          </Button>
+          <br />
+          <Button
+            title="firebaseTest"
+            type="primary"
+            onClick={() => {
+              navigate("/firebaseTest");
+            }}
+          >
+            firebaseTest 확인
           </Button>
         </Container>
       </div>
